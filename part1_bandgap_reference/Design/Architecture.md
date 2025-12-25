@@ -12,7 +12,7 @@ The design follows a current-mode bandgap topology, where PTAT and CTAT componen
 
 | Parameter | Value |
 |---------|------|
-| Technology | CMOS (with parasitic PNP BJTs) |
+| Technology | 180 nm CMOS (with parasitic PNP BJTs) |
 | Supply Voltage | 3.3 V |
 | Target VREF | ~1.1–1.2 V |
 | Temperature Range | −40°C to 125°C |
