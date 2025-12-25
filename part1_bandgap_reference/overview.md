@@ -27,7 +27,7 @@ Output port, VOUT --> refernce voltage
 The bandgap reference relies on combining two voltages with opposite temperature coefficients (TC):
 - #### 1. CTAT Voltage (Complementary To Absolute Temperature)
   - Derived from the base–emitter voltage (V_BE) of a BJT.
-  - V_BE decreases with temperature at approximately −2 mV/K.
+  - V_BE decreases with temperature at approximately −1.6 mV/K.
 - #### 2. PTAT Voltage (Proportional to Absolute Temperature)
   - Generated from the difference between the V_BE values of two BJTs operating at different current densities.
   - This difference, ΔV_BE, increases linearly with temperature.
