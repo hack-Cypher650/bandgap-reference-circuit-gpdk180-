@@ -50,7 +50,7 @@ compensation.
 | VREF (min) | 1.1823 V |
 | VREF (max) | 1.1847 V |
 | ΔVREF | 2.4 mV |
-| Mean VREF | 1.1184 V |
+| Mean VREF | 1.11835 V |
 
 ---
 
@@ -77,7 +77,11 @@ stability, the temperature sweep was repeated at the **minimum supply
 voltage (VDD_min)** determined from headroom analysis, just before
 reference collapse.
 
-- **Supply Voltage:** VDD_min ≈ *2.5049* V
+- **Supply Voltage:** VDD_min ≈ *2.4974* V
+- VDD_min was defined as the lowest supply voltage at which VREF remained
+within ±10 mV of its nominal value while all core bias MOSFETs remained
+in saturation at 27 °C.
+
 
 ![VREF vs temperature at minimum VDD](Figures/vref_vs_temp_vddmin.png)
 
