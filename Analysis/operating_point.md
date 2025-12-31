@@ -31,12 +31,17 @@ The annotated schematic below shows the DC operating point values
 for the critical biasing devices under nominal conditions.
 
 ![Annotated DC operating point schematic](Figures/op_schematic_annotated.png)
+*Global DC bias overview of the bandgap reference.*
 
 ![Annotated DC operating point schematic](Figures/op_current_mirror_block.png)
+*Verification of saturation operation in the cascode current mirror.*
 
 ![Annotated DC operating point schematic](Figures/op_reference_branch.png)
+*DC biasing of PTAT–CTAT summation branch.*
 
 ![Annotated DC operating point schematic](Figures/op_starter_circuit_block.png)
+*Confirmation that startup devices are inactive under steady-state.*
+
 
 The annotations include drain current, terminal voltages, and small-signal
 parameters required for bias verification.
@@ -50,27 +55,32 @@ The table below summarizes the extracted DC operating point values for key MOSFE
 
 ### MOSFET DC Bias and Region of Operation
 
-| Device | VGS (mV) | VDS (mV) | VTH (mV) | Region of Operation |
+| Device | VGS (V) | VDS (V) | VTH (V) | Region of Operation |
 |--------|----------|----------|---------|---------------------|
-| NM0    | 46.7774  | 2653.6   | 496.259 | OFF          |
-| NM1    | 2077.28  | 46.7774  | 502.76  | Linear          |
-| NM2    | 664.846  | 664.846  | 612.057 | Saturation          |
-| NM3    | 664.846  | 664.74   | 612.057 | Saturation          |
-| NM8    | 802.964  | 802.964  | 749.494 | Saturation          |
-| NM9    | 803.07   | 732.983  | 749.494 | Saturation          |
-| PM2    | -646.402 | -646.402 |-435.114 | Saturation          |
-| PM3    | -646.596 | -576.508 |-435.129 | Saturation          |
-| PM4    | -644.593 | -1467.12 |-434.929 | Saturation          |
-| PM7    | -646.403 | -645.209 |-435.114 | Saturation          |
-| PM8    | -646.403 | -648.212 |-435.113 | Saturation          |
-| PM9    | -646.403 | -646.403 |-435.114 | Saturation          |
+| NM2    | 0.665    | 0.665    | 0.612   | Saturation          |
+| NM3    | 0.665    | 0.665    | 0.612   | Saturation          |
+| NM8    | 0.803    | 0.803    | 0.749   | Saturation          |
+| NM9    | 0.803    | 0.733    | 0.749   | Saturation          |
+| PM2    | -0.646   | -0.646   |-0.435   | Saturation          |
+| PM3    | -0.647   | -0.577   |-0.435   | Saturation          |
+| PM4    | -0.645   | -1.467   |-0.435   | Saturation          |
+| PM7    | -0.646   | -0.645   |-0.435   | Saturation          |
+| PM8    | -0.646   | -0.648   |-0.435   | Saturation          |
+| PM9    | -0.646   | -0.646   |-0.435   | Saturation          |
+
+### Non-Core / Startup Devices
+
+NM0 and NM1 are intentionally biased in OFF and linear regions respectively and are
+part of the startup network. Their operating regions do not affect
+steady-state bandgap operation.
+
 
 **Note:**  
 The threshold voltage (`VTH`) values were obtained from the device operating point data reported by the simulator.  
 The region of operation was determined analytically using DC bias conditions.
 
-![Device operating point data for M1 – Page 1](Figures/op_device_table_NM2_p1.jpg)
-![Device operating point data for M1 – Page 2](Figures/op_device_table_NM2_p2.jpg)
+![Device operating point data for NM2 – Page 1](Figures/op_device_table_NM2_p1.jpg)
+![Device operating point data for NM2 – Page 2](Figures/op_device_table_NM2_p2.jpg)
 
 
 ---
@@ -83,8 +93,9 @@ For an NMOS transistor to operate in saturation, the following conditions must b
 
 
 
-Using the extracted DC operating point values, all listed MOSFETs satisfy the
-above conditions, confirming saturation operation under nominal bias.
+Using the extracted DC operating point values, all **core bias MOSFETs**
+satisfy the above conditions, confirming saturation operation under
+nominal bias.
 
 This ensures:
 - Accurate current mirroring
@@ -101,7 +112,8 @@ predictable temperature behavior.
 
 The DC operating point of the PNP BJTs was verified to confirm correct collector
 current and base–emitter voltage.
-(Also for a <b>Diode connected PNP BJT VBE=VCE</b>)
+For the diode-connected PNP BJTs used in the design, VBE = VCE,
+ensuring operation in forward-active mode.
 
 ![PNP BJT DC operating point](Figures/op_pnp.png)
 
@@ -112,16 +124,17 @@ temperature and nominal bias current.
 
 ## 7. Observations
 
-- All critical MOSFETs operate in saturation with sufficient voltage headroom.
-- MOSFETs 
-- No device is biased near the triode or cutoff boundary.
+- All core bias MOSFETs operate in saturation with sufficient voltage headroom.
+- Startup-related devices are correctly biased in OFF or linear regions
+  under steady-state operation.
+- No core device is biased near the triode or cutoff boundary.
 - Parasitic PNP BJTs exhibit stable VBE values suitable for CTAT generation.
+
 
 ---
 
 ## 8. Conclusion
 
-The DC operating point analysis confirms correct biasing of both MOSFET and
-parasitic PNP BJT devices in the bandgap reference circuit under nominal
+The DC operating point analysis confirms correct biasing of both core MOSFET bias devices and parasitic PNP BJTs in the bandgap reference circuit under nominal
 conditions. The verified operating regions validate the assumptions used in
 subsequent temperature sweep, PSR, and headroom analyses.
