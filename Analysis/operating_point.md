@@ -69,6 +69,8 @@ The table below summarizes the extracted DC operating point values for key MOSFE
 The threshold voltage (`VTH`) values were obtained from the device operating point data reported by the simulator.  
 The region of operation was determined analytically using DC bias conditions.
 
+![Device operating point data for M1 – Page 1](Figures/op_device_table_NM2_p1.jpg)
+![Device operating point data for M1 – Page 2](Figures/op_device_table_NM2_p2.jpg)
 
 
 ---
