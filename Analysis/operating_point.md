@@ -76,10 +76,9 @@ steady-state bandgap operation.
 
 
 **Note:**  
-PMOS terminal voltages are reported with respect to source potential,
-hence negative VGS and VTH values.
-The threshold voltage (`VTH`) values were obtained from the device operating point data reported by the simulator.  
-The region of operation was determined analytically using DC bias conditions.
+- PMOS terminal voltages are reported with respect to source potential, hence negative VGS and VTH values.
+- The threshold voltage (`VTH`) values were obtained from the device operating point data reported by the simulator.  
+- The region of operation was determined analytically using DC bias conditions.
 
 ![Device operating point data for NM2 – Page 1](Figures/op_device_table_NM2_p1.jpg)
 ![Device operating point data for NM2 – Page 2](Figures/op_device_table_NM2_p2.jpg)
