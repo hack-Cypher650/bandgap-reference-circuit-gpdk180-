@@ -30,6 +30,14 @@ All bias sources and startup circuitry were enabled during simulation.
 The annotated schematic below shows the DC operating point values
 for the critical biasing devices under nominal conditions.
 
+![Annotated DC operating point schematic](Figures/op_schematic_annotated.png)
+
+![Annotated DC operating point schematic](Figures/op_current_mirror_block.png)
+
+![Annotated DC operating point schematic](Figures/op_reference_branch.png)
+
+![Annotated DC operating point schematic](Figures/op_starter_circuit_block.png)
+
 The annotations include drain current, terminal voltages, and small-signal
 parameters required for bias verification.
 
@@ -93,7 +101,7 @@ The DC operating point of the PNP BJTs was verified to confirm correct collector
 current and base–emitter voltage.
 (Also for a <b>Diode connected PNP BJT VBE=VCE</b>)
 
-![PNP BJT DC operating point](figures/op_pnp_vbe.png)
+![PNP BJT DC operating point](Figures/op_pnp.png)
 
 The extracted VBE values are consistent with expected CTAT behavior at room
 temperature and nominal bias current.
