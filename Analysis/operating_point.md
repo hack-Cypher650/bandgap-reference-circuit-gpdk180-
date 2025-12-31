@@ -25,7 +25,7 @@ All bias sources and startup circuitry were enabled during simulation.
 
 
 ---
-##  Annotated Schematic – DC Bias Overview
+##  3. Annotated Schematic – DC Bias Overview
 
 The annotated schematic below shows the DC operating point values
 for the critical biasing devices under nominal conditions.
@@ -49,7 +49,7 @@ parameters required for bias verification.
 
 ---
 
-## 3. MOSFET Bias Summary
+## 4. MOSFET Bias Summary
 
 The table below summarizes the extracted DC operating point values for key MOSFETs in the design.
 
@@ -76,6 +76,8 @@ steady-state bandgap operation.
 
 
 **Note:**  
+PMOS terminal voltages are reported with respect to source potential,
+hence negative VGS and VTH values.
 The threshold voltage (`VTH`) values were obtained from the device operating point data reported by the simulator.  
 The region of operation was determined analytically using DC bias conditions.
 
@@ -85,7 +87,7 @@ The region of operation was determined analytically using DC bias conditions.
 
 ---
 
-## 4. Region of Operation Verification
+## 5. Region of Operation Verification
 
 For an NMOS transistor to operate in saturation, the following conditions must be satisfied:
 - VGS > VTH
