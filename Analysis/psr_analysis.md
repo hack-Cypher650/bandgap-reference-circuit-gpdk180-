@@ -72,10 +72,13 @@ XF = VREF / VDD
 
 The PSRR is computed from the XF magnitude as:
 
-PSRR(dB) = −20·log10(|ΔVREF / ΔVDD|)
+PSRR(dB) = −20·log10(|VREF / VDD|)
 
 
 ![PSRR vs frequency (Cascode current mirror)](Figures/psrr_vs_freq_cascode.png)
+
+Markers at 1 kHz, 10 kHz, and 1 MHz are included to correlate the AC PSRR
+plot with the quantitative values reported in the table.
 
 At low frequencies, the bandgap reference exhibits high PSRR due to
 effective bias isolation provided by cascode current mirrors. As
@@ -94,6 +97,11 @@ parasitic capacitances.
 | PSRR @ 1 MHz | −26.72 dB |
 
 All values correspond to nominal operating conditions.
+
+The DC PSR is lower than the low-frequency AC PSRR due to static bias
+point sensitivity to supply variation, whereas the AC PSRR reflects
+small-signal rejection around the operating point.
+
 
 ---
 
