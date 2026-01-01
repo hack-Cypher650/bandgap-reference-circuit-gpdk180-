@@ -98,6 +98,7 @@ parasitic capacitances.
 
 All values correspond to nominal operating conditions.
 
+### Note on DC vs AC PSR:
 The DC PSR is lower than the low-frequency AC PSRR due to static bias
 point sensitivity to supply variation, whereas the AC PSRR reflects
 small-signal rejection around the operating point.
