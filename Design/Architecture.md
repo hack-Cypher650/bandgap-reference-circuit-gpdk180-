@@ -25,7 +25,7 @@ The design follows a current-mode bandgap topology, where PTAT and CTAT componen
 
 The complete schematic of the implemented bandgap reference is shown below, highlighting the bias network, PTAT and CTAT branches, and the summation node.
 
-<img width="4155" height="1917" alt="Circuit_with_startup23" src="https://github.com/user-attachments/assets/65cdce42-e89c-4f5b-a648-1c40d1a07f8e" />
+![Top level schematic](Schematics/top_level_schematic_.png)
 
 ---
 
@@ -111,15 +111,26 @@ The architecture relies on bias currents generated through MOS mirrors; therefor
 
 ---
 
-## 10. Layout Considerations
+### 10. Layout Considerations
 
-Although this project focuses primarily on schematic-level design, layout-aware architectural decisions were incorporated:
+Although this project focuses primarily on schematic-level design,
+layout-aware architectural decisions were incorporated:
 
-- Common-centroid layout planned for matched PNPs and resistors.
-- Symmetric routing of PTAT and CTAT paths to minimize gradient-induced mismatch.
-- Guard rings around the bandgap core to reduce substrate noise coupling.
+- Symmetric placement of current mirrors and bias devices to reduce
+  systematic mismatch.
+- Proximity-based placement of parasitic PNP BJTs and PTAT/CTAT
+  resistors to minimize process and thermal gradients.
+- Structured power distribution using horizontal VDD and GND rails to
+  improve routing clarity and bias consistency.
+- Startup circuitry planned to be physically separated from the
+  matching-sensitive bandgap core.
+- Substrate and well biasing ensured through localized taps; a dedicated
+  guard ring was not included due to the isolated, small-signal nature
+  of the block.
 
-Post-layout extraction is intended to evaluate the impact of parasitics on temperature coefficient and output voltage accuracy.
+Post-layout parasitic extraction was not performed, as the layout is
+intended to demonstrate physical design intent rather than final
+silicon-accurate performance.
 
 ---
 
