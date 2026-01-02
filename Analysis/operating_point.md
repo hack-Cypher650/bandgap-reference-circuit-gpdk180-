@@ -117,6 +117,7 @@ in the presence and absence of the startup circuit.
 - The startup circuit injects a bias current during power-up.
 - The bandgap converges to the correct operating point.
 - VREF settles to its nominal value.
+- Once steady-state is reached, the startup circuit naturally turns off due to node voltage convergence.
 
 ![Correct startup with startup circuit](Figures/with_startup.png)
 
@@ -133,7 +134,7 @@ For an NMOS transistor to operate in saturation, the following conditions must b
 
 Using the extracted DC operating point values, all **core bias MOSFETs**
 satisfy the above conditions, confirming saturation operation under
-nominal bias.
+nominal bias. Also, margin to saturation was verified to be sufficient across nominal bias currents.
 
 This ensures:
 - Accurate current mirroring
