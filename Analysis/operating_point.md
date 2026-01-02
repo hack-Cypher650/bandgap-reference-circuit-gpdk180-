@@ -86,7 +86,44 @@ steady-state bandgap operation.
 
 ---
 
-## 5. Region of Operation Verification
+## 5. Role of the Startup Circuit
+
+### Zero-Current Operating Point
+
+Bandgap reference circuits inherently exhibit a zero-current stable
+operating point in which all devices remain off and no bias currents
+flow. In the absence of a startup mechanism, the circuit may remain
+latched in this state indefinitely after power-up, resulting in an
+invalid reference output.
+
+To prevent this condition, a startup circuit is included to inject a
+small bias current during power-up, forcing the circuit into the
+intended operating point.
+
+### Transient Verification of Startup Operation
+
+Transient simulations were performed to verify correct startup behavior
+in the presence and absence of the startup circuit.
+
+**Case 1: Without startup circuit**
+- VDD is ramped from 0 V to nominal supply.
+- The circuit remains in the zero-current state.
+- VREF fails to reach the intended reference level.
+
+![Startup failure without startup circuit](Figures/without_startup.png)
+
+**Case 2: With startup circuit**
+- VDD is ramped from 0 V to nominal supply.
+- The startup circuit injects a bias current during power-up.
+- The bandgap converges to the correct operating point.
+- VREF settles to its nominal value.
+
+![Correct startup with startup circuit](Figures/with_startup.png)
+
+
+---
+
+## 6. Region of Operation Verification
 
 For an NMOS transistor to operate in saturation, the following conditions must be satisfied:
 - VGS > VTH
@@ -105,7 +142,7 @@ This ensures:
 
 ---
 
-## 6. Parasitic PNP BJT Operating Point
+## 7. Parasitic PNP BJT Operating Point
 
 The bandgap reference employs parasitic vertical PNP BJTs to generate the CTAT
 voltage component (VBE). Proper DC biasing of these devices is essential for
@@ -123,19 +160,39 @@ temperature and nominal bias current.
 
 ---
 
-## 7. Observations
+## 8. Observations
 
-- All core bias MOSFETs operate in saturation with sufficient voltage headroom.
-- Startup-related devices are correctly biased in OFF or linear regions
-  under steady-state operation.
-- No core device is biased near the triode or cutoff boundary.
-- Parasitic PNP BJTs exhibit stable VBE values suitable for CTAT generation.
+- With the startup circuit enabled, all core bias MOSFETs operate in the
+  saturation region with sufficient voltage headroom under nominal
+  operating conditions.
+
+- Startup-related devices are active only during power-up and are biased
+  in the OFF or linear region during steady-state operation, ensuring no
+  disturbance to the core bias network.
+
+- No core MOSFET is biased near the cutoff or triode boundary at the
+  steady-state operating point.
+
+- Parasitic PNP BJTs exhibit stable VBE values appropriate for CTAT
+  voltage generation.
+
+- In the absence of the startup circuit, transient analysis shows that
+  the bandgap reference remains trapped in the zero-current operating
+  point, confirming the functional necessity of the startup mechanism.
+
 
 
 ---
 
-## 8. Conclusion
+## 9. Conclusion
 
-The DC operating point analysis confirms correct biasing of both core MOSFET bias devices and parasitic PNP BJTs in the bandgap reference circuit under nominal
-conditions. The verified operating regions validate the assumptions used in
-subsequent temperature sweep, PSR, and headroom analyses.
+The DC operating point analysis verifies correct steady-state biasing of
+the core MOSFET devices and parasitic PNP BJTs in the bandgap reference
+circuit. Transient verification further confirms that the circuit
+exhibits a stable zero-current operating point in the absence of a
+startup mechanism, making the startup circuit functionally necessary.
+
+When included, the startup circuit reliably forces the bandgap into the
+intended operating point during power-up while remaining inactive during
+steady-state operation. These results validate the bias assumptions used
+in subsequent temperature sweep, PSR, and headroom analyses.
